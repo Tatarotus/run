@@ -11,8 +11,6 @@ sudo apt update && sudo apt upgrade -y
 
 # Install general development tools
 echo "Installing general development tools..."
-# install magic wormhole and other packages, like tar, pigz, age for encryption, etc
-# Install fish terminal 
 sudo apt install -y \
     git \
     curl \
@@ -23,17 +21,29 @@ sudo apt install -y \
     zip \
     tmux \
     htop \
+    btop \
     tree \
+    eza \             # eza — a modern replacement for ls
+    zoxide            # A smarter cd command for your terminal
     python3 \
     python3-pip \
     jq \
+    magic-wormhole \  # to transfer files between local machines
+    pigz \            # better compression using multiprocessing threads
+    age \             # encryption tool
+    ripgrep \         # a fast and feature-rich (regex) grep replacement
+    rclone \          # rclone is a command line program to manage files between cloud storage services
+    fzf \             # a general-purpose command-line fuzzy finder
+    nala \            # a package manager for Ubuntu
+    fish \            # a modern and user-friendly shell
     snapd
 
 # Install Node.js and npm (JavaScript)
-# Change the node version to a more up-to-date one
 echo "Installing Node.js and npm..."
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt install -y nodejs
+# Update npm to the latest version
+echo "Updating npm to the latest version..."
 sudo npm install -g npm@latest
 
 # Install Yarn (JavaScript package manager)
